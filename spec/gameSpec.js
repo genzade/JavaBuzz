@@ -12,7 +12,12 @@ describe('game', function() {
       expect(game.frames).toContain(frame);
     });
 
-   
+    it('has a maximum of 10 frames', function() {
+      for (var i = 0; i < 10; i++) {
+        game.play(frame)
+      }
+      expect(function(){ game.play(frame); }).toThrowError('Max: 10 Frames');
+    });
   });
 
   // describe('#firstRoll', function() {
