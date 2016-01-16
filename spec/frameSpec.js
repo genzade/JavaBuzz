@@ -27,17 +27,26 @@ describe('frame', function() {
   });
 
 
-  // describe('#', function() {
-  //   it('', function() {
-      
-  //   });
-  // });
+  describe('#strike', function() {
+    beforeEach(function() {
+      frame.rollOne(10)
+    });
+    it('returns strike if 10 pins drop upon first bowl', function() {
+      expect(frame.strike).toBe(true)
+    });
 
-  // describe('#', function() {
-  //   it('', function() {
-      
-  //   });
-  // });
+    it('cannot roll again in frame after a strike', function() {
+      expect(function() { frame.rollTwo(0) }).toThrowError('No More Rolls Until Next Frame')
+    });
+  });
+
+  describe('#spare', function() {
+    it('returns spare if 10 pins drop upon second bowl', function() {
+      frame.rollOne(1)
+      frame.rollTwo(9)
+      expect(frame.spare).toBe(true)
+    });
+  });
 
   // describe('#', function() {
   //   it('', function() {
