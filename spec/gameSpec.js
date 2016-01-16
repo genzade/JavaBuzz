@@ -21,11 +21,32 @@ describe('game', function() {
     });
   });
 
-  describe('#score', function() {
-    it('bowling returns number of pins dropped', function() {
+  describe('#scoreCalculator', function() {
+    it('calculates the score', function() {
       game.firstBowl(2)
       game.secondBowl(5)
-      expect(game.score()).toEqual(2 + 5)
+      expect(game.score).toEqual(2 + 5)
+    });
+
+    it('calculates spares', function() {
+      game.firstBowl(8)
+      game.secondBowl(2)
+      game.play()
+      game.firstBowl(7)
+      game.secondBowl(1)
+      expect(game.score).toEqual(8 + 2 + 7 + 7 + 1)
+    });
+
+    it(' can calculate multiple spares', function() {
+      game.firstBowl(8)
+      game.secondBowl(2)
+      game.play()
+      game.firstBowl(7)
+      game.secondBowl(3)
+      game.play()
+      game.firstBowl(3)
+      game.secondBowl(4)
+      expect(game.score).toEqual(37)
     });
   });
 

@@ -26,7 +26,6 @@ describe('frame', function() {
     });
   });
 
-
   describe('#strike', function() {
     beforeEach(function() {
       frame.rollOne(10)
