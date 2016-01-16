@@ -1,17 +1,21 @@
 function Frame() {
-  this.total = 0
+  this.pinsDropped = 0
 }
 
 Frame.prototype.rollOne = function(n) {
   if (n > 10) {
     throw new Error('Maximum: 10');
   }
-  return this.total += n
+  return this.pinsDropped += n
 };
 
 Frame.prototype.rollTwo = function(n) {
-  if (this.total + n > 10) {
-    throw new Error('Rolls Exceed 10')
+  if (this.pinsDropped + n > 10) {
+    throw new Error('Rolls Exceed 10');
   }
-  return this.total += n
+  return this.pinsDropped += n
+};
+
+Frame.prototype.total = function() {
+  return this.pinsDropped;
 };

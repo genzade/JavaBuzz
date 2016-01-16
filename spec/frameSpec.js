@@ -22,7 +22,7 @@ describe('frame', function() {
     it('should return total from two rolls', function() {
       frame.rollOne(1);
       frame.rollTwo(4);
-      expect(frame.total).toEqual(1 + 4)
+      expect(frame.total()).toEqual(1 + 4)
     });
   });
 
@@ -32,4 +32,20 @@ describe('frame', function() {
       
   //   });
   // });
+
+  // describe('#', function() {
+  //   it('', function() {
+      
+  //   });
+  // });
+
+  // describe('#', function() {
+  //   it('', function() {
+      
+  //   });
+  // });
+
+
+
+
 });
