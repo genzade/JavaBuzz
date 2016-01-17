@@ -31,30 +31,48 @@ describe('game', function() {
     it('calculates spares', function() {
       game.firstBowl(8)
       game.secondBowl(2)
-      game.play()
+      game.play(frame)
       game.firstBowl(7)
       game.secondBowl(1)
       expect(game.score).toEqual(8 + 2 + 7 + 7 + 1)
     });
 
-    it(' can calculate multiple spares', function() {
+    it('can calculate multiple spares', function() {
       game.firstBowl(8)
       game.secondBowl(2)
-      game.play()
+      game.play(frame)
       game.firstBowl(7)
       game.secondBowl(3)
-      game.play()
+      game.play(frame)
       game.firstBowl(3)
       game.secondBowl(4)
       expect(game.score).toEqual(37)
+    });
+
+    it('calculates strikes', function() {
+      game.firstBowl(10)
+      game.play(frame)
+      game.firstBowl(2)
+      game.secondBowl(3)
+      expect(game.score).toEqual(10 + 2 + 3 + 2 + 3)
+    });
+
+    it('can calculate multiple strikes', function() {
+      game.firstBowl(10)
+      game.play(frame)
+      game.firstBowl(10)
+      game.play()
+      game.firstBowl(2)
+      game.secondBowl(3)
+      expect(game.score).toEqual(42)
     });
   });
 
 
   // describe('#', function() {
-  //   it('', function() {
-      
-  //   });
+    // it('', function() {
+    //   expect()
+    // });
   // });
 
   // describe('#', function() {

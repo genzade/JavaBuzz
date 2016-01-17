@@ -27,6 +27,6 @@ Frame.prototype.rollTwo = function(n) {
   return this.pinsDropped += n
 };
 
-Frame.prototype.total = function() {
-  return this.pinsDropped;
-};
+// Frame.prototype.total = function() {
+//   return this.pinsDropped;
+// };

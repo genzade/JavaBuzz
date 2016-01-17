@@ -18,11 +18,16 @@ describe('frame', function() {
     });
   });
 
-  describe('#total', function() {
-    it('should return total from two rolls', function() {
+  describe('#pinsDropped', function() {
+    it('should return the number of pins dropped after a roll', function() {
+      frame.rollOne(1)
+      expect(frame.pinsDropped).toEqual(1)
+    });
+
+    it('should return the number of pins dropped after two rolls', function() {
       frame.rollOne(1);
       frame.rollTwo(4);
-      expect(frame.total()).toEqual(1 + 4)
+      expect(frame.pinsDropped).toEqual(1 + 4)
     });
   });
 
@@ -30,6 +35,7 @@ describe('frame', function() {
     beforeEach(function() {
       frame.rollOne(10)
     });
+
     it('returns strike if 10 pins drop upon first bowl', function() {
       expect(frame.strike).toBe(true)
     });
@@ -52,8 +58,5 @@ describe('frame', function() {
       
   //   });
   // });
-
-
-
 
 });
